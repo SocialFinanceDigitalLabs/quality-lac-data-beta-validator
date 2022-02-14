@@ -5,13 +5,13 @@ from .types import ErrorDefinition
 from .utils import add_col_to_tables_CONTINUOUSLY_LOOKED_AFTER as add_CLA_column  # Check 'Episodes' present before use!
 
 
+# Despite the Coding Description provided, is there any need to check if CONTINUOUSLY_LOOKED_AFTER for this rule?
 def validate_546():
     error = ErrorDefinition(
         code='546',
         description='Children aged 5 or over at 31 March should not have health promotion information completed.',
-        affected_fields=['CONTINOUSLY_LOOKED_AFTER', 'DOB', 'HEALTH_CHECK']
+        affected_fields=['DOB', 'HEALTH_CHECK']
     )
-
     def _validate(dfs):
         if 'OC2' not in dfs or 'Episodes' not in dfs:
             return {}
